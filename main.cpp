@@ -44,7 +44,7 @@ public:
     }
 };
 
-//Recorremos con BFS
+//recorremos con BFS
 void bfs(Grafo& g, int origen, int* dist, int* prev, int V) {
     bool* visitado = new bool[V+1];
     for (int i = 1; i <= V; ++i) {
@@ -76,6 +76,7 @@ void bfs(Grafo& g, int origen, int* dist, int* prev, int V) {
     delete[] visitado;
 }
 
+//usando el arreglo prev recontruimos el camino 
 void reconstruirCamino(int destino, int* prev, int* camino, int& largo) {
     int temp[100];
     int n = 0;
@@ -89,6 +90,7 @@ void reconstruirCamino(int destino, int* prev, int* camino, int& largo) {
     }
 }
 
+//se imprime el camino 
 void imprimirRuta(int* camino, int largo) {
     cout << "{";
     for (int i = 0; i < largo; ++i) {
@@ -98,6 +100,7 @@ void imprimirRuta(int* camino, int largo) {
     cout << "}";
 }
 
+//esta funcion encuentra al conductor mas cercano y calcula la ruta completa con el costo
 void solicitarUber(Grafo& g, int* conductores, int C, int inicio, int destino) {
     int dist[100], prev[100];
     int camino1[100], camino2[100];
